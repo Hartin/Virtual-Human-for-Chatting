@@ -87,6 +87,8 @@ public class ReadEvents : MonoBehaviour
             string file = loadFile();
 #elif UNITY_STANDALONE_OSX
             string file = loadFile();
+#elif UNITY_ANDROID
+            string file = "";
 #endif
 
             if (string.IsNullOrEmpty(file))

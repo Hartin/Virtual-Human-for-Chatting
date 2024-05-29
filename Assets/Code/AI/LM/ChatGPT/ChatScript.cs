@@ -25,7 +25,8 @@ public class ChatScript : MonoBehaviour
     [SerializeField]public GptTurboScript m_GptTurboScript;
 
     // 语言
-    [SerializeField]private string m_lan="使用中文回答";
+    //[SerializeField]private string m_lan="使用中文回答";
+    [SerializeField]private string m_lan="in English";
 
     // 气泡
     [SerializeField]private GameObject bubbleUI;
@@ -79,7 +80,8 @@ public class ChatScript : MonoBehaviour
         if (_postData.Equals("")){
             return;
         }
-        string _msg = m_GptTurboScript.m_Prompt + m_lan + " " + _postData;
+        //string _msg = m_GptTurboScript.m_Prompt + m_lan + " " + _postData;
+        string _msg = _postData;
         //发送数据
         StartCoroutine(m_GptTurboScript.GetPostData(_msg, m_OpenAI_Key, CallBack));
     }

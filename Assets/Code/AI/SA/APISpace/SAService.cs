@@ -24,7 +24,8 @@ public class SAService
         try
         {
             string content = msg.Replace("\n", "").Replace(" ", "").Replace("\t", "").Replace("\r", "");
-            string utf = HttpUtility.UrlEncode(content, Encoding.UTF8);
+            //string utf = HttpUtility.UrlEncode(content, Encoding.UTF8); //注释掉
+            string utf = Uri.EscapeDataString(content);//新增加
             string serviceAddress = "https://eolink.o.apispace.com/wbqgfx/api/v1/forward/sentiment_anls?text=" + utf;
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(serviceAddress);
             request.Method = "GET";

@@ -43,14 +43,26 @@ public class GameSettingsEntity : Singleton<GameSettingsEntity>
             this.APISpaceAPI = readData.Substring(start_position[4] + 1, readData.IndexOf("\"", start_position[4] + 1) - start_position[4] - 1);
             this.Persona = readData.Substring(start_position[5] + 1, readData.IndexOf("\"", start_position[5] + 1) - start_position[5] - 1);
             // Debug.Log(this.LookTargetMode + "&" + this.Speaker + "&" + this.ChatGPTAPI + "&" + this.AzureAPI + "&" + this.APISpaceAPI + ".");
+            
+            //设置默认值
+            this.LookTargetMode = 0;
+            this.Speaker = "zh-CN-XiaoxiaoNeural";
+            this.ChatGPTAPI = "sk-f3a5090a7c6e42be9f3184a075d7d974";
+            this.AzureAPI = "894042222b1a41599b6f649698ed5ba2";
+            this.APISpaceAPI = "ltd9jcxfh9jmvqhpqgam8i5sifv6ptly";
+            //this.Persona = "请你扮演我的学妹，名字是桃花元子，按照傲娇学妹的说话习惯回答";
+            this.Persona = "请你扮演一名经验丰富的英语老师，与中国学生进行对话，句子要简短。对于学生的每一句话都要判断是否有错误有的话给学生指出来，如果没有则直接回答学生的问题。所有的回复使用英语回答";
         }
         else{
             this.LookTargetMode = 0;
             this.Speaker = "zh-CN-XiaoxiaoNeural";
-            this.ChatGPTAPI = "";
-            this.AzureAPI = "";
-            this.APISpaceAPI = "";
-            this.Persona = "请你扮演我的学妹，名字是桃花元子，按照傲娇学妹的说话习惯回答";
+            this.ChatGPTAPI = "sk-f3a5090a7c6e42be9f3184a075d7d974";
+            this.AzureAPI = "894042222b1a41599b6f649698ed5ba2";
+            this.APISpaceAPI = "ltd9jcxfh9jmvqhpqgam8i5sifv6ptly";
+            //this.Persona = "请你扮演我的学妹，名字是桃花元子，按照傲娇学妹的说话习惯回答";
+            this.Persona = "请你扮演一名经验丰富的英语老师，与中国学生进行对话，句子要简短。对于学生的每一句话都要判断是否有错误有的话给学生指出来，如果没有则直接回答学生的问题。所有的回复使用英语回答";
+                          // "Please act as an experienced English teacher and have an oral English conversation with a Chinese student." +
+                          // "For each sentence, first judge whether there is any grammatical error, if there is, point out the grammatical error and then give the answer of the sentence.Response in English";
             string js = JsonConvert.SerializeObject(this);
             using (StreamWriter sw = new StreamWriter(fileUrl))
             {
